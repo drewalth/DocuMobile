@@ -1,0 +1,15 @@
+import axios from 'axios'
+
+const options = {
+  headers: {
+    Accept: 'application/json',
+    // Cookie: 'turbo_auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhdGxhcy5jb20iLCJzaGFyZWQiOmZhbHNlLCJ0aXRsZSI6IiIsImxvY2FsZSI6ImVuLVVTIiwidGVuYW50LWlkIjo0LCJ0ZW5hbnQta2V5IjoiQVRMQVNDT1BDT0NSIiwiZXJwLWVuYWJsZWQiOmZhbHNlLCJzdXBlcmFkbWluIjpmYWxzZSwiZXhwIjoxNjA3NjAwNjM4LCJpYXQiOjE2MDc1NzE4MzgsImp0aSI6IjVkN2UyMTNkLWNjMGQtNDA1Ny1hZjRhLTBjYjQ5MjM5MTk2OSIsImVtYWlsIjoibWVsaXNzYS5icnVja25lckBkaWdhYml0LmNvbSIsImxvY2FsZS1pZCI6MSwibGFzdC1uYW1lIjoiYXRsYXMiLCJncm91cC1pZHMiOlszXSwidXNlci1pZCI6NCwiZmlyc3QtbmFtZSI6ImFkbWluIiwiZ2VuZXJpYyI6ZmFsc2UsIm9yZ2FuaXphdGlvbi1rZXkiOiJRdXdKcGsiLCJtZWRpYS1jYXRlZ29yeS1pZHMiOlsxMywxNCwxNV0sImF1ZCI6ImRldiIsInVzdDpyZWRpcmVjdCI6WyIvYWRtaW4vZGFzaGJvYXJkIl0sIm5iZiI6MTYwNzU3MTgzOCwicHJpdmlsZWdlLWlkcyI6WzAsMSwyLDMsNCw4LDksMTIsMTMsMTQsMTUsMTYsMjEsMjIsMjQsMjUsMjYsMjksMzAsMzMsMzQsMzUsMzYsMzcsMzgsMzksNDYsNDcsNDgsNDksNTEsNTQsNTUsNjAsNjEsNzZdLCJvcmdhbml6YXRpb24taWQiOjYsInVzZXJuYW1lIjoiYWRtaW5AYXRsYXMuY29tIn0.UDASC98qYwGnwr4Stm7H05_w8SHDpEV5x-P5ICkl-gs'
+  }
+}
+
+export async function getRecentlyViewed() {
+  return axios.get('http://192.168.86.36/api/recent/viewed?limit=8', options).then(res => res.data.items)
+}
+export async function getRecentlyEdited() {
+  return axios.get('http://192.168.86.36/api/recently-edited', options).then(res => res.data)
+}
